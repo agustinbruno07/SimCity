@@ -8,7 +8,7 @@ public class Edificio {
 	private int felicidad;
 	private int precio;
 	
-	public Edificio(String tipo, String nombre, int seguridad, int prevIncendios, int felicidad, int precio) {
+	public Edificio(String nombre, String tipo,  int seguridad, int prevIncendios, int felicidad, int precio) {
 		
 		this.tipo = tipo;
 		this.nombre = nombre;

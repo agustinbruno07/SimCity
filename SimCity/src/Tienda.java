@@ -45,9 +45,8 @@ public class Tienda {
  
  public void mostrarCatalogo() { 
 	 for(int i = 0; i < catalogo.length; i++) {
-		 System.out.println("--");
+		 System.out.println( (i+1) + "--");
 		 catalogo[i].mostrarDatos();
-		 
 	 }
  } 
   
