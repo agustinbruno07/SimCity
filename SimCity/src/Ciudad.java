@@ -13,7 +13,18 @@ public class Ciudad {
 		
 	}
 	
-	
+	public boolean tieneEdificioDeTipo(String tipo) { 
+		
+		for(int i = 0; i<this.contadorComprados; i ++){
+
+			if(edificiosComprados[i].getTipo().equals(tipo)) {
+				return true;
+			}
+			
+		}
+		return false;
+	}
+
 	public void agregarEdificio(Edificio edificioNuevo) {
 		if(this.contadorComprados < this.cantidadMax){
 			this.edificiosComprados[this.contadorComprados] = edificioNuevo;

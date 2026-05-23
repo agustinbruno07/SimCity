@@ -19,23 +19,57 @@ public class Principal {
 		
 		tienda.mostrarCatalogo();
 		
-		System.out.println("Elegi algun edificio poniendo su numero: ");
-		int numero  = entrada.ingresarEntero(0, 30);
+		
+		
+		
+		boolean edificioValido= false;
+		int numero;
+		do {
+			System.out.println("Elegi algun edificio poniendo su numero: ");
+			 numero  = entrada.ingresarEntero(1, 30);
+		
+			if(numero == -1){
+				jugador.sumarDinero(1000000);
+				jugador.mostrarDatos();
+				
+			}else {
+				edificioValido= true;
+			}
+			
+		}while(!edificioValido);
 		
 		Edificio elegido = tienda.obtenerEdificio(numero);
+		Edificio copia = new Edificio(elegido);
+		copia.mostrarDatos();
 		
-		elegido.mostrarDatos();
-		int precio = elegido.getPrecio();
-		boolean resultado = jugador.restarDinero(precio);
-		if(resultado == true) {
-			ciudad1.agregarEdificio(elegido);
-
-			ciudad1.mostrarEdificiosComprados();
+		boolean resultado = jugador.comprobarDinero(copia.getPrecio());
+		
+		if(copia.getTipo().equals("Maravilla")) {
+			if(resultado) {
+				jugador.restarDinero(copia.getPrecio());
+				ciudad1.agregarEdificio(copia);
+				ciudad1.mostrarEdificiosComprados();
+			}
+		
+		}else {
+	
+			if(ciudad1.tieneEdificioDeTipo(copia.getTipo()) == true){
+				System.out.println("Ya tenes ese tipo de edificio no lo podes comprar. ");
+			}else {
+				if(resultado) {
+					jugador.restarDinero(copia.getPrecio());
+					ciudad1.agregarEdificio(copia);
+					ciudad1.mostrarEdificiosComprados();
+				}
+			}
+			
+			
+		}
 		}
 		
 		
-
 		
 	}
 
-}
+
+

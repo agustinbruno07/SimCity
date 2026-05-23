@@ -4,20 +4,30 @@ public class Edificio {
 	private String tipo;
 	private String nombre;
 	private int seguridad;
-	private int prevIncendios;
+	private int prevencionIncendios;
 	private int felicidad;
 	private int precio;
 	
-	public Edificio(String nombre, String tipo,  int seguridad, int prevIncendios, int felicidad, int precio) {
+	public Edificio(String nombre, String tipo,  int seguridad, int prevencionIncendios, int felicidad, int precio) {
 		
 		this.tipo = tipo;
 		this.nombre = nombre;
 		this.seguridad = seguridad;
-		this.prevIncendios = prevIncendios;
+		this.prevencionIncendios = prevencionIncendios;
 		this.felicidad = felicidad;
 		this.precio = precio;
 		
 	}
+
+	public Edificio(Edificio otroEdificio) {
+	    this.nombre = otroEdificio.getNombre();
+	    this.tipo = otroEdificio.getTipo();
+	    this.seguridad = otroEdificio.getSeguridad();
+	    this.prevencionIncendios = otroEdificio.getPrevencionIncendios();
+	    this.felicidad = otroEdificio.getFelicidad();
+	    this.precio = otroEdificio.getPrecio();
+	}
+
 	
 	public String getTipo() {
 		return this.tipo;
@@ -28,11 +38,11 @@ public class Edificio {
 	public int getSeguridad() {
 		return this.seguridad;
 	}
-	public int getPrevIncendios() {
-		return this.prevIncendios;
+	public int getPrevencionIncendios() {
+		return this.prevencionIncendios;
 	}
 	public int getFelicidad() {
-		return this.prevIncendios;
+		return this.felicidad;
 	}
 	public int getPrecio() {
 		return this.precio;

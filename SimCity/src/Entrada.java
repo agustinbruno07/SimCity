@@ -20,53 +20,40 @@ public class Entrada {
 	
 
 	public int ingresarEntero(int min, int max) {
-
 		boolean error = false;
-
 		int numero = 0;
-
-		
-
+		String texto = "";
 		do {
-
+			
 			error = false;
-
-			try {
-
-				numero = s.nextInt();
-
-				if(numero > max || numero < min) {
-
-					System.out.println("El numero ingresado debe estar entre " + min +" y " + max);
-
-					error = true;
-
-				}
-
+			texto = s.nextLine();
+			
+			if(texto.equalsIgnoreCase("TORG")){
 				
-
+				return -1;
+				
+			}
+			try {
+				
+				numero = Integer.parseInt(texto);
+				if(numero > max || numero < min) {
+					System.out.println("El numero ingresado debe estar entre " + min +" y " + max);
+					error = true;
+				}
 			}catch(InputMismatchException e ) {
 
+				
 				System.out.println("Ingrese valores numericos");
-
 				error = true;
-
 			}finally {
-
 				s.nextLine();
-
 				if(error) {
-
 					System.out.println("ingrese nuevamente:");
-
 				}		
-
 			}	
-
 		}while(error);
-
+		
 		return numero ;
-
 	}
 
 

@@ -40,6 +40,13 @@ public class Jugador {
 		}
 		
 	}
+	public boolean comprobarDinero(int monto) {
+		if(this.dinero >= monto){
+			return true;
+		}else {
+			return false;
+		}
+	}
 	public void mostrarDatos() {
 		System.out.println("LOS DATOS DEL ALCALDE SON:");
 		System.out.println("El nombre del Alcalde es: " + this.nombre);
